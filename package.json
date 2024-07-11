@@ -1,0 +1,60 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "type": "module",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "cardano-cip30-from-sk",
+  "author": "tinschere@gmail.com",
+  "module": "dist/cardano-cip30-from-sk.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/cardano-cip30-from-sk.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/cardano-cip30-from-sk.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.1.4",
+    "@swc/jest": "^0.2.36",
+    "husky": "^9.0.11",
+    "size-limit": "^11.1.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.2"
+  },
+  "dependencies": {
+    "@blaze-cardano/sdk": "^0.0.24"
+  }
+}
